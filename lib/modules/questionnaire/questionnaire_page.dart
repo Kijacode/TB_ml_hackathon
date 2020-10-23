@@ -46,6 +46,11 @@ class _QuestionnaireState extends State<Questionnaire> {
     });
   }
 
+  void onSaveQuestionareAnswers(){
+
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,34 +69,50 @@ class _QuestionnaireState extends State<Questionnaire> {
           ),
         ),
         //Questionare
-        body: Column(
-          children: [
-            SingleChildScrollView(
-              child: Column(
-                children: qb,
+        body:SingleChildScrollView(
+          child: Column(
+            children: [
+              SingleChildScrollView(
+                child: Column(
+                  children: qb,
+                ),
               ),
-            ),
-            GestureDetector(
-              onTap: () => onNextQuestion("FAMILY AND EDUCATION"),
-              child: Container(
-                margin: EdgeInsets.symmetric(vertical: 10),
-                height: 25,
-                width: 320,
-                decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.grey,
+              GestureDetector(
+                onTap: () => widget.pageTitle == "PERSONAL DATA" ? 
+                 onNextQuestion("FAMILY AND EDUCATION") :
+                 widget.pageTitle == "FAMILY AND EDUCATION" ? 
+                  onNextQuestion("RISK FACTORS") :
+                  widget.pageTitle == "RISK FACTORS" ?
+                   onNextQuestion("HABITS") :
+                   widget.pageTitle == "HABITS" ?
+                    onNextQuestion("DISEASES"): 
+                    widget.pageTitle =="DISEASES" ?
+                     onNextQuestion("MOST SCREENING TB SYMPTOMS") :
+                     widget.pageTitle == "MOST SCREENING TB SYMPTOMS"?
+                      onNextQuestion("Other Common Symptoms"):
+                      widget.pageTitle == "Other Common Symptoms" ?
+                      onSaveQuestionareAnswers:
+                      null,
+                child: Container(
+                  margin: EdgeInsets.symmetric(vertical: 10),
+                  height: 25,
+                  width: 320,
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.grey,
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  child: Center(
+                    child: Text(
+                      "Next Questions",
+                      style: TextStyle()
+                          .copyWith(fontSize: 11.0, color: Color(0xFFFF8C10)),
                     ),
-                    borderRadius: BorderRadius.all(Radius.circular(20))),
-                child: Center(
-                  child: Text(
-                    "Next Questions",
-                    style: TextStyle()
-                        .copyWith(fontSize: 11.0, color: Color(0xFFFF8C10)),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ));
   }
 }

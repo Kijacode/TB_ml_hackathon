@@ -52,8 +52,8 @@ class SingleCardQuestion extends StatelessWidget {
                         ),
                       ),
                       TickXMark(
-                        onNO: onNo,
-                        onYes: onYes,
+                        onNO:() => onNo(context),
+                        onYes:()=> onYes(context),
                       )
                     ],
                   ),
