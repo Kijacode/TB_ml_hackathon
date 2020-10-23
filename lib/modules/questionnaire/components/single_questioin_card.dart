@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:onsite/app_state/questionare_state.dart';
 import 'package:onsite/modules/questionnaire/components/Tick_X_mark.dart';
+import 'package:provider/provider.dart';
 
 class SingleCardQuestion extends StatelessWidget {
   SingleCardQuestion(
@@ -13,17 +15,14 @@ class SingleCardQuestion extends StatelessWidget {
   final String question;
   final int questionId;
 
-  Map<int, String> answers = Map();
 
-  void onYes() {
-    answers.addAll({questionId: "1"});
-    print(answers);
-  }
+  void onYes(BuildContext context) async{
+          await Provider.of<QuestionareState>(context, listen: false)
+        .onSetAnswer(questionId,"1"); }
 
-  void onNo() {
-    answers.addAll({questionId: "0"});
-    print(answers);
-  }
+  void onNo(BuildContext context)async {
+   await Provider.of<QuestionareState>(context, listen: false)
+        .onSetAnswer(questionId,"0");}
 
   @override
   Widget build(BuildContext context) {
