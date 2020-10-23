@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onsite/core/utils/app_util.dart';
 import 'package:onsite/modules/questionnaire/components/single_questioin_card.dart';
 import 'package:onsite/modules/questionnaire/models/qustionare.dart';
 
@@ -46,9 +47,14 @@ class _QuestionnaireState extends State<Questionnaire> {
     });
   }
 
-  void onSaveQuestionareAnswers() {
-    print("submit Questions");
+  void onSaveQuestionareAnswers(BuildContext context) {
+    AppUtil.showPopUpModal(context, GestureDetector(
+      child: Text("Save"),
+     onTap: (){ },
+    ), false);
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +100,7 @@ class _QuestionnaireState extends State<Questionnaire> {
                                             "Other Common Symptoms")
                                         : widget.pageTitle ==
                                                 "Other Common Symptoms"
-                                            ? onSaveQuestionareAnswers()
+                                            ? onSaveQuestionareAnswers(context)
                                             : null,
                 child: Container(
                   margin: EdgeInsets.symmetric(vertical: 10),

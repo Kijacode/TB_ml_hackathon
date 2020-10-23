@@ -30,6 +30,8 @@ class _HomeState extends State<Home> {
         context, new MaterialPageRoute(builder: (context) => new Report()));
   }
 
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
