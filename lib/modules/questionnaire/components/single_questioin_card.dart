@@ -42,7 +42,7 @@ class SingleCardQuestion extends StatelessWidget {
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 25),
+                        padding: const EdgeInsets.symmetric(vertical: 10),
                         child: Text(
                           question,
                           style: TextStyle(
