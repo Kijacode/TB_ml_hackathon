@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:onsite/components/home_card_selection.dart';
+import 'package:onsite/core/utils/app_util.dart';
+import 'package:onsite/core/utils/line_separator.dart';
 import 'package:onsite/modules/questionnaire/questionnaire_page.dart';
 import 'package:onsite/modules/report/report.dart';
-import 'package:onsite/utils/app_util.dart';
-import 'package:onsite/utils/line_separator.dart';
 
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);
@@ -15,8 +15,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   void initState() {
-    // TODO: implement initState
-    super.initState();
+      super.initState();
     AppUtil.setStatusBarColor(Color(0xFFFF8C10));
   }
    

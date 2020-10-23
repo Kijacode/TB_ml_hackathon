@@ -46,9 +46,8 @@ class _QuestionnaireState extends State<Questionnaire> {
     });
   }
 
-  void onSaveQuestionareAnswers(){
-
-
+  void onSaveQuestionareAnswers() {
+    print("submit Questions");
   }
 
   @override
@@ -69,7 +68,7 @@ class _QuestionnaireState extends State<Questionnaire> {
           ),
         ),
         //Questionare
-        body:SingleChildScrollView(
+        body: SingleChildScrollView(
           child: Column(
             children: [
               SingleChildScrollView(
@@ -78,21 +77,25 @@ class _QuestionnaireState extends State<Questionnaire> {
                 ),
               ),
               GestureDetector(
-                onTap: () => widget.pageTitle == "PERSONAL DATA" ? 
-                 onNextQuestion("FAMILY AND EDUCATION") :
-                 widget.pageTitle == "FAMILY AND EDUCATION" ? 
-                  onNextQuestion("RISK FACTORS") :
-                  widget.pageTitle == "RISK FACTORS" ?
-                   onNextQuestion("HABITS") :
-                   widget.pageTitle == "HABITS" ?
-                    onNextQuestion("DISEASES"): 
-                    widget.pageTitle =="DISEASES" ?
-                     onNextQuestion("MOST SCREENING TB SYMPTOMS") :
-                     widget.pageTitle == "MOST SCREENING TB SYMPTOMS"?
-                      onNextQuestion("Other Common Symptoms"):
-                      widget.pageTitle == "Other Common Symptoms" ?
-                      onSaveQuestionareAnswers:
-                      null,
+                onTap: () => widget.pageTitle == "PERSONAL DATA"
+                    ? onNextQuestion("FAMILY AND EDUCATION")
+                    : widget.pageTitle == "FAMILY AND EDUCATION"
+                        ? onNextQuestion("RISK FACTORS")
+                        : widget.pageTitle == "RISK FACTORS"
+                            ? onNextQuestion("HABITS")
+                            : widget.pageTitle == "HABITS"
+                                ? onNextQuestion("DISEASES")
+                                : widget.pageTitle == "DISEASES"
+                                    ? onNextQuestion(
+                                        "MOST SCREENING TB SYMPTOMS")
+                                    : widget.pageTitle ==
+                                            "MOST SCREENING TB SYMPTOMS"
+                                        ? onNextQuestion(
+                                            "Other Common Symptoms")
+                                        : widget.pageTitle ==
+                                                "Other Common Symptoms"
+                                            ? onSaveQuestionareAnswers()
+                                            : null,
                 child: Container(
                   margin: EdgeInsets.symmetric(vertical: 10),
                   height: 25,
