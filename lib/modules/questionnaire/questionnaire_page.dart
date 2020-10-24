@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:onsite/core/utils/app_util.dart';
+import 'package:onsite/app_state/questionare_state.dart';
 import 'package:onsite/modules/questionnaire/components/single_questioin_card.dart';
 import 'package:onsite/modules/questionnaire/models/qustionare.dart';
+import 'package:onsite/modules/result/result.dart';
+import 'package:provider/provider.dart';
 
 class Questionnaire extends StatefulWidget {
   Questionnaire({Key key, @required this.pageTitle}) : super(key: key);
@@ -47,14 +49,27 @@ class _QuestionnaireState extends State<Questionnaire> {
     });
   }
 
-  void onSaveQuestionareAnswers(BuildContext context) {
-    AppUtil.showPopUpModal(context, GestureDetector(
-      child: Text("Save"),
-     onTap: (){ },
-    ), false);
+  void onSaveQuestionareAnswers() async{
+    // AppUtil.showPopUpModal(
+    //     context,
+    //     GestureDetector(
+    //       child: Text("Save"),
+    //       onTap: () async {
+    //         await Provider.of<QuestionareState>(context, listen: false)
+    //             .onSaveAnswerToServer();
+
+    //         //onSaveAnswerToServer
+    //       },
+    //     ),
+    //     false);
+    await Provider.of<QuestionareState>(context, listen: false)
+                .onSaveAnswerToServer();
+          //ResultPage
+            Navigator.push(
+        context,
+        new MaterialPageRoute(
+            builder: (context) => new ResultPage()));
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +115,7 @@ class _QuestionnaireState extends State<Questionnaire> {
                                             "Other Common Symptoms")
                                         : widget.pageTitle ==
                                                 "Other Common Symptoms"
-                                            ? onSaveQuestionareAnswers(context)
+                                            ? onSaveQuestionareAnswers()
                                             : null,
                 child: Container(
                   margin: EdgeInsets.symmetric(vertical: 10),

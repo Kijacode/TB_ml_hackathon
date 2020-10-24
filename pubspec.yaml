@@ -40,6 +40,7 @@ dependencies:
   sqflite:
   path:
   flutter_stetho: ^0.5.2
+  pie_chart:
 
 dev_dependencies:
   flutter_test:

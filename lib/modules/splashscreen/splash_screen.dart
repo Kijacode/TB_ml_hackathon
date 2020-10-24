@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:onsite/modules/home/home.dart';
+import 'package:onsite/modules/registration/Login.dart';
 
 class SplashScreen extends StatefulWidget {
   SplashScreen({Key key}) : super(key: key);
@@ -18,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void navigationPage() async {
     Navigator.push(
-        context, new MaterialPageRoute(builder: (context) => new Home()));
+        context, new MaterialPageRoute(builder: (context) => new Login()));
   }
 
   @override

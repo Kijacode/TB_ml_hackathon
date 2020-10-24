@@ -17,7 +17,6 @@ class HttpService {
       String url, Map<String, List<String>> postData) async {
     http.Response response =
         await http.post(url, headers: headers, body: json.encode(postData));
-
     return response;
   }
 }
