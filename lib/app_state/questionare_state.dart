@@ -26,33 +26,33 @@ class QuestionareState with ChangeNotifier {
   Future onSaveAnswerToServer() async {
     List<String> responseAnswers = [];
     {
-      for (int questionId = 1; questionId < 24; questionId++) {
-        // responseAnswers.add("0");
-        for (Map<int, String> singleAnswer in answers) {
-          if (singleAnswer.containsValue(null)) {
-            singleAnswer.putIfAbsent(1, () => "0");
-          } else {
-            print("invalues");
-            print(singleAnswer[questionId]);
+      List<int> keyRemove = [
+        3,
+        4,
+        5,
+        6,
+      ];
+      for (Map<int, String> singleAnswer in answers) {
+        for (int keyToremove in keyRemove) {
+          if (singleAnswer.containsKey(keyToremove)) {
+            singleAnswer.clear();
           }
         }
+
+        for (int question = 1; question < 24; question++) {
+          // print(answers[question]);
+          // var uniqueAnswers = answers.map((o) {
+          //   if (o.containsKey(question)) {
+          //     responseAnswers.add(o[question]);
+          //   }
+          // }).toSet();
+          responseAnswers.add("0");
+        }
+
+        _analysisResult = await QuestionnaireService.onSaveQuestionnaireAnswers(
+            {"question": responseAnswers});
+        return null;
       }
-
-      answers.forEach((Map<int, String> singleAnswer) {
-        print(singleAnswer.values);
-      });
-      // for (int questionId = 1; questionId < 24; questionId++) {
-      //   responseAnswers.add("0");
-
-      // }
     }
-    // for (int questionId = 1; questionId < 24; questionId++) {
-    //   responseAnswers.add("0");
-    //   //print(responseAnswers);
-    // }
-
-    _analysisResult = await QuestionnaireService.onSaveQuestionnaireAnswers(
-        {"question": responseAnswers});
-    return null;
   }
 }

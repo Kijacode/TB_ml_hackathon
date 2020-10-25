@@ -45,50 +45,46 @@ class Questionare {
             icon: "assets/images/date.svg", question: "Diabetes", id: 13),
         TheQuestion(
             icon: "assets/images/date.svg", question: "Anaemia", id: 14),
+         TheQuestion(
+            icon: "assets/images/date.svg", question: "Malnutrition", id: 15),
         TheQuestion(
-            icon: "assets/images/date.svg", question: "Diabetes", id: 15),
-        TheQuestion(
-            icon: "assets/images/date.svg", question: "Anaemia", id: 16),
-        TheQuestion(
-            icon: "assets/images/date.svg", question: "Malnutrition", id: 17),
-        TheQuestion(
-            icon: "assets/images/date.svg", question: "Other Infection", id: 18)
+            icon: "assets/images/date.svg", question: "Other Infection", id: 16)
       ]),
       Questionare(category: "MOST SCREENING TB SYMPTOMS", questions: [
         TheQuestion(
             icon: "assets/images/date.svg",
             question: "Cough More Than 2 Weeks",
-            id: 19),
+            id: 17),
         TheQuestion(
             icon: "assets/images/date.svg",
             question: "Fever for more Than 7 Days",
-            id: 20),
+            id: 18),
         TheQuestion(
-            icon: "assets/images/date.svg", question: "Hymoptysis", id: 21),
+            icon: "assets/images/date.svg", question: "Hymoptysis", id: 19),
         TheQuestion(
-            icon: "assets/images/date.svg", question: "Night Sweats", id: 22),
+            icon: "assets/images/date.svg", question: "Night Sweats", id: 20),
         TheQuestion(
-            icon: "assets/images/date.svg", question: "Weight Loss", id: 23)
+            icon: "assets/images/date.svg", question: "Weight Loss", id: 21)
       ]),
       Questionare(category: "Other Common Symptoms", questions: [
         TheQuestion(
-            icon: "assets/images/date.svg", question: "Malaise", id: 24),
+            icon: "assets/images/date.svg", question: "Malaise", id: 22),
         TheQuestion(
             icon: "assets/images/date.svg",
             question: "Difficult Breathing",
-            id: 25),
+            id: 23),
         TheQuestion(
             icon: "assets/images/date.svg",
             question: "Swell of Lymph Node",
-            id: 26),
+            id: 24),
         TheQuestion(
             icon: "assets/images/date.svg",
             question: "Reduced air Entry",
-            id: 27),
+            id: 25),
         TheQuestion(
             icon: "assets/images/date.svg",
             question: "Increased Respiratory Rate",
-            id: 28),
+            id: 26),
         TheQuestion(
             icon: "assets/images/date.svg", question: "Chest Pain", id: 29)
       ]),

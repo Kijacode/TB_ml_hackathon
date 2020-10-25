@@ -1,6 +1,8 @@
 
 
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -13,6 +15,22 @@ class AppUtil{
     static void setStatusBarColor(Color color) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
         statusBarColor: color, statusBarBrightness: Brightness.light));
+  }
+
+ static String getUid() {
+    Random rnd = new Random();
+    const letters = 'abcdefghijklmnopqrstuvwxyz' + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const allowedChars = '0123456789' + letters;
+    const NUMBER_OF_CODEPOINTS = allowedChars.length;
+    const CODESIZE = 11;
+    String uid;
+    int charIndex = (rnd.nextInt(10) / 10 * letters.length).round();
+    uid = letters.substring(charIndex, charIndex + 1);
+    for (int i = 1; i < CODESIZE; ++i) {
+      charIndex = (rnd.nextInt(10) / 10 * NUMBER_OF_CODEPOINTS).round();
+      uid += allowedChars.substring(charIndex, charIndex + 1);
+    }
+    return uid;
   }
 
    static showToastMessage(

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:onsite/app_state/patient_state.dart';
 import 'package:onsite/app_state/questionare_state.dart';
+import 'package:onsite/core/services/patient_service/patient_service.dart';
+import 'package:onsite/models/patient.dart';
 import 'package:onsite/modules/questionnaire/components/single_questioin_card.dart';
 import 'package:onsite/modules/questionnaire/models/qustionare.dart';
-import 'package:onsite/modules/result/result.dart';
+import 'package:onsite/modules/report/report.dart';
 import 'package:provider/provider.dart';
 
 class Questionnaire extends StatefulWidget {
@@ -49,26 +52,21 @@ class _QuestionnaireState extends State<Questionnaire> {
     });
   }
 
-  void onSaveQuestionareAnswers() async{
-    // AppUtil.showPopUpModal(
-    //     context,
-    //     GestureDetector(
-    //       child: Text("Save"),
-    //       onTap: () async {
-    //         await Provider.of<QuestionareState>(context, listen: false)
-    //             .onSaveAnswerToServer();
+  void onSaveQuestionareAnswers() async {
+    
+     await Provider.of<QuestionareState>(context, listen: false)
+        .onSaveAnswerToServer();
+            Patient currentPatient =
+        Provider.of<PatientState>(context, listen: false).currentPatient;
+    double analysisValue =
+        Provider.of<QuestionareState>(context, listen: false).analysisResult;
 
-    //         //onSaveAnswerToServer
-    //       },
-    //     ),
-    //     false);
-    await Provider.of<QuestionareState>(context, listen: false)
-                .onSaveAnswerToServer();
-          //ResultPage
-            Navigator.push(
-        context,
-        new MaterialPageRoute(
-            builder: (context) => new ResultPage()));
+    await PatientService.updatePatientAnalysisValue(
+        currentPatient, analysisValue.toString());
+    await Provider.of<PatientState>(context, listen: false).getPatient();
+
+    Navigator.push(
+        context, new MaterialPageRoute(builder: (context) => new Report()));
   }
 
   @override

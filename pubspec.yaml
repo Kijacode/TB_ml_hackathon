@@ -41,6 +41,7 @@ dependencies:
   path:
   flutter_stetho: ^0.5.2
   pie_chart:
+  queries:
 
 dev_dependencies:
   flutter_test:
