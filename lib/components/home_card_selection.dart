@@ -22,7 +22,12 @@ class HomeCardSelection extends StatelessWidget {
               color:  Color(0xFF66B9C4),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [SvgPicture.asset(icon),
+                children: [
+                Container(
+                  height: 70,
+                  width: 70,
+                  child:   SvgPicture.asset(icon),
+                ),
                 
                  Text(title,style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),)],
               )),

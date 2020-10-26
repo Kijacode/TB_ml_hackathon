@@ -25,7 +25,6 @@ class QuestionareState with ChangeNotifier {
 
   Future onSaveAnswerToServer() async {
     List<String> responseAnswers = [];
-    List<Map<int, String>> list = [];
     List<int> keyRemove = [
       3,
       4,
@@ -54,21 +53,28 @@ class QuestionareState with ChangeNotifier {
     }
 
     // print(responseAnswers.length);
+    int count = 0;
     if (responseAnswers.length > 23) {
       for (int listToRemove = 0;
-          listToRemove < (responseAnswers.length - 23);
+          listToRemove < (responseAnswers.length - 23)+1;
           listToRemove++) {
-        responseAnswers.remove(responseAnswers[listToRemove]);
+        count++;
+        responseAnswers.removeAt(count);
+        print(responseAnswers.length);
       }
       print("in remove");
       print(responseAnswers.length);
       _analysisResult = await QuestionnaireService.onSaveQuestionnaireAnswers(
           {"question": responseAnswers});
+      answers.clear();
     }
     if (responseAnswers.length == 23) {
+      
       _analysisResult = await QuestionnaireService.onSaveQuestionnaireAnswers(
           {"question": responseAnswers});
+      answers.clear();
     }
+    print(responseAnswers);
 
     return null;
   }

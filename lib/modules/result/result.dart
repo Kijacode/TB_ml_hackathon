@@ -35,7 +35,7 @@ class _ResultPageState extends State<ResultPage> {
   Widget build(BuildContext context) {
     Map<String, double> dataMap = {"TB": tbPoint, "": 1 - tbPoint};
 
-    List<Color> colorList = [Colors.redAccent, Colors.green, Colors.blue];
+    List<Color> colorList = [Color.fromRGBO(155, 0, 0, 1), Colors.green, Colors.blue];
 
     BoxShape legendShape = BoxShape.circle;
 
@@ -54,7 +54,9 @@ class _ResultPageState extends State<ResultPage> {
             ],
           ),
         ),
-        body: Container(
+        body: Column(
+          children: [
+            Container(
             //padding: EdgeInsets.symmetric(vertical: 10, horizontal: 0),
             child: Material(
           type: MaterialType.card,
@@ -153,6 +155,30 @@ class _ResultPageState extends State<ResultPage> {
               ],
             ),
           ),
-        )));
+        )),
+        Container(
+              margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: Column(
+                children: [                 
+              LineSeperator(color: Colors.grey,height: 1,),
+               Padding(padding: EdgeInsets.symmetric(vertical: 10), ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                   children: [
+                Text("Recommendation",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
+                  
+                ],
+              ),
+              Padding(padding: EdgeInsets.symmetric(vertical: 10), ),
+              LineSeperator(color: Colors.grey,height: 1,)
+              ],)
+              
+              
+              
+              ),
+              Text("Recommendation and data interpretation  analysed here ",style: TextStyle(color: Colors.grey),)
+          ],
+        ));
   }
 }

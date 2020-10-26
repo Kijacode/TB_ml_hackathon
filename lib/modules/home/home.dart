@@ -38,6 +38,23 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+     appBar:  AppBar(
+       elevation: 0,
+       backgroundColor: Color(0xFF66B9C4),
+       leading: Text(""),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20),
+              )
+            ],
+          ),
+        ),
       backgroundColor: Color(0xFFFFFFFF),
       body: Consumer<PatientState>(
         builder: (BuildContext context, patientState, Widget child) {
@@ -45,7 +62,7 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               HomeCardSelection(
-                icon: "assets/images/fever.svg",
+                icon: "assets/images/work.svg",
                 title: "Questionnaire",
                 onPage: onQuestionaire,
               ),
@@ -65,7 +82,7 @@ class _HomeState extends State<Home> {
                 color: Colors.grey,
               ),
               HomeCardSelection(
-                icon: "assets/images/fever.svg",
+                icon: "assets/images/malaise.svg",
                 title: "My Account",
                 onPage: onMyAccount,
               ),

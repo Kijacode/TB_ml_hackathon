@@ -5,6 +5,7 @@ import 'package:onsite/core/services/http_service/http_service.dart';
 class QuestionnaireService {
   static Future<double> onSaveQuestionnaireAnswers(
       Map<String, List<String>> answers) async {
+    print("In server");
     double responseAnswer = 0;
     Response response = await HttpService()
         .httpPost("https://tb-model-2.herokuapp.com", answers);

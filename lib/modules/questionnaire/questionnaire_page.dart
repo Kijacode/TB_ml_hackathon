@@ -42,6 +42,8 @@ class _QuestionnaireState extends State<Questionnaire> {
                     questionIcon: question.icon,
                     question: question.question,
                     questionId: question.id,
+                    isClicked:question.isSelected,
+                    
                   )))
               .toList()
           : Text("");
@@ -56,13 +58,10 @@ class _QuestionnaireState extends State<Questionnaire> {
     
      await Provider.of<QuestionareState>(context, listen: false)
         .onSaveAnswerToServer();
-            Patient currentPatient =
-        Provider.of<PatientState>(context, listen: false).currentPatient;
-    double analysisValue =
-        Provider.of<QuestionareState>(context, listen: false).analysisResult;
-
+  
+        
     await PatientService.updatePatientAnalysisValue(
-        currentPatient, analysisValue.toString());
+         Provider.of<PatientState>(context, listen: false).currentPatient, Provider.of<QuestionareState>(context, listen: false).analysisResult.toString());
     await Provider.of<PatientState>(context, listen: false).getPatient();
 
     Navigator.push(
@@ -73,17 +72,22 @@ class _QuestionnaireState extends State<Questionnaire> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                title,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20),
-              )
-            ],
+          title: SingleChildScrollView(
+                      child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                                  child: Text(
+                    title,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                        overflow: TextOverflow.fade,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
         //Questionare
