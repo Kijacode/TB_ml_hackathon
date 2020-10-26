@@ -10,7 +10,7 @@ class Questionare {
     return [
       Questionare(category: "PERSONAL DATA", questions: [
         TheQuestion(icon: "assets/images/date.svg", question: "Sex", id: 1),
-        TheQuestion(icon: "assets/images/date.svg", question: "Age", id: 2),
+        TheQuestion(icon: "assets/images/tb_history.svg", question: "Age", id: 2),
         TheQuestion(
             icon: "assets/images/date.svg", question: "Home Address", id: 3),
         TheQuestion(icon: "assets/images/date.svg", question: "Work", id: 4),
@@ -81,12 +81,16 @@ class Questionare {
             icon: "assets/images/date.svg",
             question: "Reduced air Entry",
             id: 25),
+              TheQuestion(
+            icon: "assets/images/date.svg",
+            question: "Increased Respiratory Rate",
+            id: 26),
         TheQuestion(
             icon: "assets/images/date.svg",
             question: "Increased Respiratory Rate",
             id: 26),
         TheQuestion(
-            icon: "assets/images/chest_pain.svg", question: "Chest Pain", id: 29)
+            icon: "assets/images/chest_pain.svg", question: "Chest Pain", id: 27)
       ]),
     ];
   }

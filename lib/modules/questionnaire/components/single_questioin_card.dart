@@ -57,7 +57,11 @@ class SingleCardQuestion extends StatelessWidget {
                       )
                     ],
                   ),
-                  SvgPicture.asset(questionIcon),
+                 ClipRRect(
+                   clipBehavior: Clip.hardEdge,
+                   borderRadius: BorderRadius.circular(50),
+                   child:  SvgPicture.asset(questionIcon),
+                 ),
                 ])),
       ),
     );

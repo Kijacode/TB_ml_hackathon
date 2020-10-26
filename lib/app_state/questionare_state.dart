@@ -25,34 +25,51 @@ class QuestionareState with ChangeNotifier {
 
   Future onSaveAnswerToServer() async {
     List<String> responseAnswers = [];
-    {
-      List<int> keyRemove = [
-        3,
-        4,
-        5,
-        6,
-      ];
-      for (Map<int, String> singleAnswer in answers) {
-        for (int keyToremove in keyRemove) {
-          if (singleAnswer.containsKey(keyToremove)) {
-            singleAnswer.clear();
-          }
+    List<Map<int, String>> list = [];
+    List<int> keyRemove = [
+      3,
+      4,
+      5,
+      6,
+    ];
+    for (Map<int, String> singleAnswer in answers) {
+      for (int keyToremove in keyRemove) {
+        if (singleAnswer.keys.contains(keyToremove)) {
+          singleAnswer.clear();
         }
-
-        for (int question = 1; question < 24; question++) {
-          // print(answers[question]);
-          // var uniqueAnswers = answers.map((o) {
-          //   if (o.containsKey(question)) {
-          //     responseAnswers.add(o[question]);
-          //   }
-          // }).toSet();
-          responseAnswers.add("0");
-        }
-
-        _analysisResult = await QuestionnaireService.onSaveQuestionnaireAnswers(
-            {"question": responseAnswers});
-        return null;
       }
     }
+
+    for (int question = 1; question < 28; question++) {
+      var uniqueAnswers = answers.map((o) {
+        if (o.containsKey(question)) {
+          if (o.containsValue(null)) {
+            o.putIfAbsent(question, () => "0");
+            responseAnswers.add(o[question]);
+          } else {
+            responseAnswers.add(o[question]);
+          }
+        }
+      }).toSet();
+    }
+
+    // print(responseAnswers.length);
+    if (responseAnswers.length > 23) {
+      for (int listToRemove = 0;
+          listToRemove < (responseAnswers.length - 23);
+          listToRemove++) {
+        responseAnswers.remove(responseAnswers[listToRemove]);
+      }
+      print("in remove");
+      print(responseAnswers.length);
+      _analysisResult = await QuestionnaireService.onSaveQuestionnaireAnswers(
+          {"question": responseAnswers});
+    }
+    if (responseAnswers.length == 23) {
+      _analysisResult = await QuestionnaireService.onSaveQuestionnaireAnswers(
+          {"question": responseAnswers});
+    }
+
+    return null;
   }
 }
