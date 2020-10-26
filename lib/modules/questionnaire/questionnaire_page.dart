@@ -128,7 +128,7 @@ class _QuestionnaireState extends State<Questionnaire> {
                     child: Text(
                       "Next Questions",
                       style: TextStyle()
-                          .copyWith(fontSize: 11.0, color: Color(0xFFFF8C10)),
+                          .copyWith(fontSize: 11.0, color: Color(0xFF66B9C4)),
                     ),
                   ),
                 ),

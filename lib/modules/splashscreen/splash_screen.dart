@@ -32,6 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
     double _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: Color(0xFFFFFFFF),
         body: SingleChildScrollView(
       child: Container(
         width: _width,

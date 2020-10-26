@@ -1,6 +1,3 @@
-
-
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -8,16 +5,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class AppUtil{
-
-
-
-    static void setStatusBarColor(Color color) {
+class AppUtil {
+  static void setStatusBarColor(Color color) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
         statusBarColor: color, statusBarBrightness: Brightness.light));
   }
 
- static String getUid() {
+  static String getUid() {
     Random rnd = new Random();
     const letters = 'abcdefghijklmnopqrstuvwxyz' + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const allowedChars = '0123456789' + letters;
@@ -33,7 +27,7 @@ class AppUtil{
     return uid;
   }
 
-   static showToastMessage(
+  static showToastMessage(
       {String message, ToastGravity position = ToastGravity.BOTTOM}) {
     Fluttertoast.showToast(
         msg: message,

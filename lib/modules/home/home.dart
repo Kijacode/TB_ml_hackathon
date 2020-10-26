@@ -17,7 +17,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    AppUtil.setStatusBarColor(Color(0xFFFF8C10));
+    AppUtil.setStatusBarColor( Color(0xFF66B9C4));
   }
 
   void onQuestionaire() {
@@ -38,7 +38,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF05600),
+      backgroundColor: Color(0xFFFFFFFF),
       body: Consumer<PatientState>(
         builder: (BuildContext context, patientState, Widget child) {
           return Column(

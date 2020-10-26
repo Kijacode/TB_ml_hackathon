@@ -14,12 +14,12 @@ class HomeCardSelection extends StatelessWidget {
         // margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         child: Material(
           type: MaterialType.card,
-          elevation: 9,
+          elevation: 1,
           child: Container(
               height: MediaQuery.of(context).size.height / 5,
               // // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
 
-              color: Color(0xFFFF8C10),
+              color:  Color(0xFF66B9C4),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [SvgPicture.asset(icon),

@@ -86,7 +86,7 @@ class Questionare {
             question: "Increased Respiratory Rate",
             id: 26),
         TheQuestion(
-            icon: "assets/images/date.svg", question: "Chest Pain", id: 29)
+            icon: "assets/images/chest_pain.svg", question: "Chest Pain", id: 29)
       ]),
     ];
   }

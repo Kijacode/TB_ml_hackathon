@@ -15,12 +15,12 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: "OnSite",
+          title: "OnSight",
           theme: ThemeData(
               textTheme: GoogleFonts.robotoTextTheme(
                 Theme.of(context).textTheme,
               ),
-              primaryColor: Colors.orange,
+              primaryColor:  Color(0xFF66B9C4),
               visualDensity: VisualDensity.adaptivePlatformDensity),
           home: SafeArea(child: SplashScreen()),
         ));

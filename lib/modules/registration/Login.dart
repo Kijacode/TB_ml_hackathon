@@ -11,11 +11,6 @@ class _LoginState extends State<Login> {
   final _signinFormkey = GlobalKey<FormState>();
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final String _password = "a";
-
-  final String _phoneNumber = "a";
-
   TextEditingController _phoneNumberTexteditingcontroller =
       TextEditingController();
 
@@ -26,23 +21,35 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
+      appBar: AppBar(
+        title: Row(children: [
+          Text("OnSight",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 27,letterSpacing: 4),)
+        ],),
+        leading: Text(""),
+        elevation: 0,
+        backgroundColor:Color(0xFF66B9C4) ,
+      ),
         key: _scaffoldKey,
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               Container(
                   height: MediaQuery.of(context).size.height / 2,
-                  color: Color(0xFFFF8C10),
+                  color: Color(0xFF66B9C4),
                   width: MediaQuery.of(context).size.width,
                   child: Column(
                     children: <Widget>[
                       SizedBox(
                         height: 150,
                       ),
-                      Text(
-                        "OnSite",
-                        style: TextStyle(color: Colors.white, fontSize: 50),
-                      ),
+                    Container(   
+                              height: MediaQuery.of(context).size.height/8,   
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(100),
+                clipBehavior: Clip.antiAlias,
+                child: Image.asset("assets/logo/logo.PNG"),
+              ),
+            ),
                       SizedBox(
                         height: 50,
                       ),
@@ -119,7 +126,7 @@ class _LoginState extends State<Login> {
                         "Login",
                         style: TextStyle(color: Colors.white),
                       ),
-                      color: Color(0xFFFF8C10),
+                      color:  Color(0xFF66B9C4),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)),
                     ),
