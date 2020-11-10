@@ -1,7 +1,7 @@
 #                                                           onSight TB Machine Learning Hackathon 2020
 
    ![Download](https://api.codemagic.io/apps/5f9732b809ca3099f33127b8/5f9732b809ca3099f33127b7/status_badge.svg)
-   ![](https://komarev.com/ghpvc/?username=Edith-Emmanuel&color=green)
+   ![](https://komarev.com/ghpvc/?username=Edith-Emmanuel&color=green&label=ProjectViews)
 
    ![ML 2020](screenshots/logo.jpg?raw=true "Onsight")
 
