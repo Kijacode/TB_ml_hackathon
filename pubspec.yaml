@@ -1,0 +1,43 @@
+name: tb_app
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: 
+  provider: 
+  flutter_svg: 
+  google_fonts: 
+  http:
+  fluttertoast: 
+  sqflite:
+  path:
+  pie_chart:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^2.0.0
+
+
+flutter:
+
+
+  uses-material-design: true
+
+  assets:
+    - assets/logo/
+    - assets/images/
+ 
